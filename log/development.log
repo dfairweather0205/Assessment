@@ -1,0 +1,94 @@
+  [1m[35m (4819.6ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bundle/bin/rake:29
+  [1m[35m (4079.1ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  ↳ /usr/local/bundle/bin/rake:29
+  [1m[35m (194.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (33.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTrails (20200915131841)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (67.7ms)[0m  [1m[35mCREATE TABLE "trails" ("id" bigserial primary key, "name" character varying, "latitude" float, "longitude" float, "radius" integer, "cache" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200915131841_create_trails.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (7.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200915131841"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (10.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (8.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-16 02:40:32.355098"], ["updated_at", "2020-09-16 02:40:32.355098"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/health_check" for 172.20.0.1 at 2020-09-16 02:43:22 +0000
+  [1m[35m (9.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bundle/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by HealthCheckController#index as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 172.20.0.1 at 2020-09-16 02:43:23 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/health_check" for 172.20.0.1 at 2020-09-16 02:43:49 +0000
+Processing by HealthCheckController#index as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/health_check" for 172.20.0.1 at 2020-09-16 02:43:53 +0000
+Processing by HealthCheckController#index as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/health_check" for 172.20.0.1 at 2020-09-16 02:44:20 +0000
+Processing by HealthCheckController#index as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trails/search?lat=40.1108&lon=-105.7463" for 172.20.0.1 at 2020-09-16 02:44:34 +0000
+Processing by TrailsController#search as HTML
+  Parameters: {"lat"=>"40.1108", "lon"=>"-105.7463"}
+  [1m[36mTrail Load (6.9ms)[0m  [1m[34mSELECT  "trails".* FROM "trails" WHERE "trails"."latitude" = $1 AND "trails"."longitude" = $2 ORDER BY "trails"."id" ASC LIMIT $3[0m  [["latitude", 40.1108], ["longitude", -105.7463], ["LIMIT", 1]]
+  ↳ app/controllers/trails_controller.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/trails_controller.rb:38
+  [1m[36mTrail Create (21.2ms)[0m  [1m[32mINSERT INTO "trails" ("latitude", "longitude", "cache", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["latitude", 40.1108], ["longitude", -105.7463], ["cache", "{\"weather\"=>{\"high\"=>286.15, \"low\"=>284.82, \"feels_like\"=>282.02, \"description\"=>\"scattered clouds\", \"location\"=>\"Granby, US\"}, \"trails\"=>[{\"id\"=>7006663, \"name\"=>\"Monarch Lake to Crater Lake\", \"type\"=>\"Recommended Route\", \"summary\"=>\"Gorgeous scenery with waterfalls and wildflowers ending at a breathtaking cirque and glacier lake.\", \"difficulty\"=>\"blueBlack\", \"stars\"=>4.9, \"starVotes\"=>83, \"location\"=>\"Granby, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7006663/monarch-lake-to-crater-lake\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7002724_sqsmall_1554227142.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7002724_small_1554227142.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7002724_smallMed_1554227142.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7002724_medium_1554227142.jpg\", \"length\"=>14.9, \"ascent\"=>2017, \"descent\"=>-2017, \"high\"=>10343, \"low\"=>8350, \"longitude\"=>-105.7463, \"latitude\"=>40.1108, \"conditionStatus\"=>\"Minor Issues\", \"conditionDetails\"=>\"Mostly Dry, Some Mud, Fallen Trees\", \"conditionDate\"=>\"2020-09-13 18:34:10\"}, {\"id\"=>7002175, \"name\"=>\"Sky Pond\", \"type\"=>\"Recommended Route\", \"summary\"=>\"Sky Pond is in a deep valley carved by Taylor Glacier and capped by Taylor and Powell Peak.\", \"difficulty\"=>\"black\", \"stars\"=>4.9, \"starVotes\"=>261, \"location\"=>\"Estes Park, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7002175/sky-pond\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7053480_sqsmall_1555703487.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7053480_small_1555703487.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7053480_smallMed_1555703487.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7053480_medium_1555703487.jpg\", \"length\"=>8.3, \"ascent\"=>2000, \"descent\"=>-1999, \"high\"=>11014, \"low\"=>9162, \"longitude\"=>-105.6403, \"latitude\"=>40.3105, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"\", \"conditionDate\"=>\"2020-09-07 15:59:24\"}, {\"id\"=>7011192, \"name\"=>\"Boulder Skyline Traverse\", \"type\"=>\"Recommended Route\", \"summary\"=>\"The classic long mountain route in Boulder.\", \"difficulty\"=>\"black\", \"stars\"=>4.7, \"starVotes\"=>90, \"location\"=>\"Boulder, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7011192/boulder-skyline-traverse\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_sqsmall_1555092747.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_smallMed_1555092747.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_medium_1555092747.jpg\", \"length\"=>17.4, \"ascent\"=>5480, \"descent\"=>-5558, \"high\"=>8454, \"low\"=>5423, \"longitude\"=>-105.2582, \"latitude\"=>39.9388, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"Dry\", \"conditionDate\"=>\"2020-06-20 23:07:00\"}, {\"id\"=>7006795, \"name\"=>\"High Lonesome Loop\", \"type\"=>\"Recommended Route\", \"summary\"=>\"A backcountry trail providing the best of high alpine hiking, with stunning views along the Divide.\", \"difficulty\"=>\"black\", \"stars\"=>4.9, \"starVotes\"=>78, \"location\"=>\"Nederland, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7006795/high-lonesome-loop\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7034581_sqsmall_1555000565.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7034581_small_1555000565.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7034581_smallMed_1555000565.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7034581_medium_1555000565.jpg\", \"length\"=>15.7, \"ascent\"=>3162, \"descent\"=>-3162, \"high\"=>12035, \"low\"=>8988, \"longitude\"=>-105.5951, \"latitude\"=>39.9516, \"conditionStatus\"=>\"Minor Issues\", \"conditionDetails\"=>\"Muddy, Snowy, Icy\", \"conditionDate\"=>\"2020-09-12 15:43:37\"}, {\"id\"=>7000276, \"name\"=>\"Emerald Lake\", \"type\"=>\"Recommended Route\", \"summary\"=>\"An easy to moderate out and back that culminates at views of Emerald Lake.\", \"difficulty\"=>\"blue\", \"stars\"=>4.7, \"starVotes\"=>295, \"location\"=>\"Estes Park, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7000276/emerald-lake\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_sqsmall_1554829871.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_small_1554829871.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_smallMed_1554829871.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_medium_1554829871.jpg\", \"length\"=>3.3, \"ascent\"=>661, \"descent\"=>-651, \"high\"=>10104, \"low\"=>9476, \"longitude\"=>-105.6457, \"latitude\"=>40.312, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"Muddy, Snowy\", \"conditionDate\"=>\"2020-09-11 18:28:58\"}, {\"id\"=>7000487, \"name\"=>\"Longs Peak - Keyhole Route\", \"type\"=>\"Recommended Route\", \"summary\"=>\"A beautiful and rewarding route to the summit of an iconic Colorado peak.\", \"difficulty\"=>\"black\", \"stars\"=>4.8, \"starVotes\"=>97, \"location\"=>\"Estes Park, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7000487/longs-peak-keyhole-route\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7043484_sqsmall_1555108350.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7043484_small_1555108350.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7043484_smallMed_1555108350.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7043484_medium_1555108350.jpg\", \"length\"=>14, \"ascent\"=>5241, \"descent\"=>-5231, \"high\"=>14196, \"low\"=>9404, \"longitude\"=>-105.5566, \"latitude\"=>40.2722, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"Dry - Views to east were slightly hazy due to smoke. Views to west less so. Trailhead parking lot spaces were full at 0215.\", \"conditionDate\"=>\"2020-09-06 09:20:11\"}, {\"id\"=>7004226, \"name\"=>\"Sunshine Lion's Lair Loop\", \"type\"=>\"Recommended Route\", \"summary\"=>\"Great Mount Sanitas views are the reward for this gentler loop in Sunshine Canyon.\", \"difficulty\"=>\"blueBlack\", \"stars\"=>4.5, \"starVotes\"=>118, \"location\"=>\"Boulder, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7004226/sunshine-lions-lair-loop\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_sqsmall_1555092747.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_small_1555092747.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_smallMed_1555092747.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7039883_medium_1555092747.jpg\", \"length\"=>5.3, \"ascent\"=>1261, \"descent\"=>-1282, \"high\"=>6800, \"low\"=>5530, \"longitude\"=>-105.2979, \"latitude\"=>40.02, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"Dry, Fallen Trees\", \"conditionDate\"=>\"2020-08-17 17:50:02\"}, {\"id\"=>7001041, \"name\"=>\"Chasm Lake\", \"type\"=>\"Recommended Route\", \"summary\"=>\"A must-do RMNP hike that leads to and from an incredible alpine lake.\", \"difficulty\"=>\"black\", \"stars\"=>4.7, \"starVotes\"=>87, \"location\"=>\"Estes Park, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7001041/chasm-lake\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7000727_sqsmall_1554159596.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7000727_small_1554159596.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7000727_smallMed_1554159596.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7000727_medium_1554159596.jpg\", \"length\"=>8.2, \"ascent\"=>2766, \"descent\"=>-2766, \"high\"=>11675, \"low\"=>9430, \"longitude\"=>-105.5566, \"latitude\"=>40.2716, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"Dry\", \"conditionDate\"=>\"2020-08-30 14:17:05\"}, {\"id\"=>7001090, \"name\"=>\"Best of Bear Lake Area Loop\", \"type\"=>\"Recommended Route\", \"summary\"=>\"A splendid loop highlighting the natural beauty in and around the Bear Lake area.\", \"difficulty\"=>\"blue\", \"stars\"=>4.6, \"starVotes\"=>107, \"location\"=>\"Estes Park, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7001090/best-of-bear-lake-area-loop\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_sqsmall_1554829871.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_small_1554829871.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_smallMed_1554829871.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7017842_medium_1554829871.jpg\", \"length\"=>5.7, \"ascent\"=>1293, \"descent\"=>-1309, \"high\"=>10194, \"low\"=>9273, \"longitude\"=>-105.6461, \"latitude\"=>40.312, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"Dry\", \"conditionDate\"=>\"2020-09-05 12:48:16\"}, {\"id\"=>7011191, \"name\"=>\"Green Mountain via Ranger/Saddle Rock Loop\", \"type\"=>\"Recommended Route\", \"summary\"=>\"A loop with a variety of terrain, a lot of climbing, and great views of Boulder.\", \"difficulty\"=>\"black\", \"stars\"=>4.5, \"starVotes\"=>89, \"location\"=>\"Boulder, Colorado\", \"url\"=>\"https://www.hikingproject.com/trail/7011191/green-mountain-via-rangersaddle-rock-loop\", \"imgSqSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7000517_sqsmall_1554159394.jpg\", \"imgSmall\"=>\"https://cdn2.apstatic.com/photos/hike/7000517_small_1554159394.jpg\", \"imgSmallMed\"=>\"https://cdn2.apstatic.com/photos/hike/7000517_smallMed_1554159394.jpg\", \"imgMedium\"=>\"https://cdn2.apstatic.com/photos/hike/7000517_medium_1554159394.jpg\", \"length\"=>4.9, \"ascent\"=>2305, \"descent\"=>-2277, \"high\"=>8099, \"low\"=>5806, \"longitude\"=>-105.2928, \"latitude\"=>39.9975, \"conditionStatus\"=>\"All Clear\", \"conditionDetails\"=>\"Dry\", \"conditionDate\"=>\"2020-08-30 13:49:54\"}]}"], ["created_at", "2020-09-16 02:44:36.020208"], ["updated_at", "2020-09-16 02:44:36.020208"]]
+  ↳ app/controllers/trails_controller.rb:38
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/trails_controller.rb:38
+Completed 200 OK in 1874ms (Views: 4.3ms | ActiveRecord: 69.4ms)
+
+
